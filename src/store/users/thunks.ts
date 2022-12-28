@@ -23,7 +23,7 @@ export const startGetUsers = () => async (dispatch: Dispatch) => {
       const users = getUsersName();
       dispatch(setUsers(users));
       dispatch(setStatus("idle"));
-    }, 1000);
+    }, 800);
   } catch (error) {
     dispatch(setStatus("failed"));
   }
@@ -44,7 +44,7 @@ export const startGetUserByID = (id: string) => async (dispatch: Dispatch) => {
 
       dispatch(setStatusUser("idle"));
       dispatch(setActiveUser(user));
-    }, 1000);
+    }, 800);
   } catch (error) {
     console.error(error);
     toast.error("Hubo un error al cargar el usuario");
@@ -83,7 +83,7 @@ export const startAddingUser =
           resetForm();
           return "Usuario agregado correctamente";
         });
-      }, 100);
+      }, 800);
     } catch (error) {
       console.error(error);
       dispatch(setStatus("failed"));
