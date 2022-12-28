@@ -31,20 +31,20 @@ export const AddUser = () => {
     <div className={styles.container}>
       <Formik
         initialValues={{
-          name: "asdfasdf",
-          email: "asdfasdf@asdf.com",
-          nationality: "asdfasdf",
-          phone: "6183259226",
+          name: "",
+          email: "",
+          nationality: "",
+          phone: "",
           address: {
-            city: "asdfasdf",
-            colony: "asdfasdf",
-            street: "asdfasdf",
-            streetNumber: "asdfasdf",
-            unitNumber: "asdfasdf",
-            municipality: "asdfasdf",
-            state: "asdfasdf",
-            country: "asdfasdf",
-            zipCode: "asdfasdf",
+            city: "",
+            colony: "",
+            street: "",
+            streetNumber: "",
+            unitNumber: "",
+            municipality: "",
+            state: "",
+            country: "",
+            zipCode: "",
           },
           businessRepresentative: "asdfasdf",
         }}

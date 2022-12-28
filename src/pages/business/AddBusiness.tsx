@@ -3,13 +3,9 @@ import styles from "styles/modules/Users.module.scss";
 import { Input } from "../../components/input/Input";
 import * as Yup from "yup";
 import { ButtonSubmit } from "components";
-import { useAppDispatch, useAppSelector } from "hooks/reduxHooks";
-import { startAddingUser, startGetUsers } from "../../store/users/thunks";
+import { useAppDispatch } from "hooks/reduxHooks";
 import { v4 as uuid } from "uuid";
-import { phoneNumberRegex } from "resources/regexValidators";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { startAddingBusiness, startGetBusiness } from "store/business/thunks";
+import { startAddingBusiness } from "store/business/thunks";
 import { addressValidationSchema } from "assets/addressValidationSchema";
 
 export const AddBusiness = () => {
@@ -19,19 +15,19 @@ export const AddBusiness = () => {
     <div className={styles.container}>
       <Formik
         initialValues={{
-          name: "Empresa",
-          email: "asdfasdf@asdfa.com",
-          dateCreated: "asdfasdf",
+          name: "",
+          email: "",
+          dateCreated: "",
           address: {
-            street: "asdfasdf",
-            streetNumber: "asdfasdf",
-            city: "asdfasdf",
-            state: "asdfasdf",
-            unitNumber: "asdfasdf",
-            zipCode: "asdfasdf",
-            colony: "asdfasdf",
-            municipality: "asdfasdf",
-            country: "asdfasdf",
+            street: "",
+            streetNumber: "",
+            city: "",
+            state: "",
+            unitNumber: "",
+            zipCode: "",
+            colony: "",
+            municipality: "",
+            country: "",
           },
           userRepresentative: null,
         }}
