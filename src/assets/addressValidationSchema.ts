@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+
 export const addressValidationSchema = Yup.object({
   street: Yup.string().required("Calle requerida"),
   streetNumber: Yup.string().required("Numero exterior requerido"),
