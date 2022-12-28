@@ -49,7 +49,11 @@ export const User = () => {
         </div>
         <ItemInfo text={activeUser.address.zipCode} icon={faHouse} />
         <ItemInfo
-          text={activeBusiness ? activeBusiness.name : "Cargando empresa"}
+          text={
+            activeBusiness
+              ? `Representante de ${activeBusiness.name}`
+              : "Cargando empresa"
+          }
           icon={faPersonChalkboard}
         />
       </div>

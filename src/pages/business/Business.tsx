@@ -28,7 +28,7 @@ export const Business = () => {
   const { activeBusiness, activeUser } = useBusiness(idBusiness);
 
   if (!activeBusiness) {
-    return <h1>Elija un usuario</h1>;
+    return <h1>Cargando información de la empresa...</h1>;
   }
 
   return (
@@ -49,9 +49,9 @@ export const Business = () => {
       <ItemInfo text={activeBusiness.dateCreated} icon={faCalendar} />
       <ItemInfo
         text={
-          activeUser
-            ? `Representada por ${activeUser.name}`
-            : "Cargando representante"
+          activeBusiness.userRepresentative
+            ? `Representada por ${activeUser?.name}`
+            : "Aún no tiene representante"
         }
         icon={faUser}
       />

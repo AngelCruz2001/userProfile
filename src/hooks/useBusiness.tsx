@@ -11,7 +11,10 @@ export const useBusiness = (idBusiness: string | undefined) => {
   const { activeUser } = useAppSelector((state) => state.usersReducer);
 
   useEffect(() => {
-    if (activeBusiness?.userRepresentative) {
+    if (
+      activeBusiness?.userRepresentative &&
+      activeBusiness.userRepresentative !== null
+    ) {
       dispatch(startGetUserByID(activeBusiness.userRepresentative));
     }
   }, [dispatch, activeBusiness]);

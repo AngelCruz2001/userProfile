@@ -7,6 +7,7 @@ import { Root, UsersScreen, User, AddUser } from "pages";
 import { BusinessScreen } from "../pages/business/index";
 import { Business } from "pages/business/Business";
 import { AddBusiness } from "../pages/business/AddBusiness";
+import { data } from "helpers/data";
 
 const router = createHashRouter([
   {
@@ -47,5 +48,7 @@ const router = createHashRouter([
 ]);
 
 export const BrowserRouter = () => {
+
+
   return <RouterProvider router={router} />;
 };

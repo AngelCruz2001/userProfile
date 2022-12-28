@@ -15,36 +15,25 @@ import { addressValidationSchema } from "assets/addressValidationSchema";
 export const AddBusiness = () => {
   const dispatch = useAppDispatch();
 
-  const { data } = useAppSelector((state) => state.usersReducer);
-
-  useEffect(() => {
-    dispatch(startGetUsers());
-  }, []);
-
-  if (!data) {
-    return <div>Cargando...</div>;
-  }
-
   return (
     <div className={styles.container}>
       <Formik
         initialValues={{
-          name: "",
-          email: "",
-          dateCreated: "",
+          name: "Empresa",
+          email: "asdfasdf@asdfa.com",
+          dateCreated: "asdfasdf",
           address: {
-            street: "",
-            streetNumber: "",
-            city: "",
-            state: "",
-            unitNumber: "",
-            zipCode: "",
-            colony: "",
-            municipality: "",
-            country: "",
+            street: "asdfasdf",
+            streetNumber: "asdfasdf",
+            city: "asdfasdf",
+            state: "asdfasdf",
+            unitNumber: "asdfasdf",
+            zipCode: "asdfasdf",
+            colony: "asdfasdf",
+            municipality: "asdfasdf",
+            country: "asdfasdf",
           },
-          document: "",
-          userRepresentative: "",
+          userRepresentative: null,
         }}
         validationSchema={Yup.object({
           name: Yup.string().required("El nombre es requerido"),
@@ -53,9 +42,6 @@ export const AddBusiness = () => {
             .required("El correo es requerido"),
           dateCreated: Yup.string().required("La fecha es requerida"),
           address: addressValidationSchema,
-          userRepresentative: Yup.string().required(
-            "El representante es requerido"
-          ),
         })}
         onSubmit={(values, { resetForm }) => {
           console.log(values);
@@ -84,12 +70,6 @@ export const AddBusiness = () => {
             <Input name="address.municipality" nameDisplayed="Municipio" />
             <Input name="address.state" nameDisplayed="Estado" />
             <Input name="address.country" nameDisplayed="Pais" />
-            <Input
-              name="userRepresentative"
-              nameDisplayed="Representada por"
-              type="select"
-              options={data}
-            />
 
             <ButtonSubmit text="Crear nueva empresa" disabled={!isValid} />
           </form>

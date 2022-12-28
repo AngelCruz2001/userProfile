@@ -6,7 +6,7 @@ export interface IBusiness {
   email: string;
   address: IAddress;
   dateCreated: string;
-  userRepresentative: string;
+  userRepresentative: string | null;
 }
 
 export interface IBusinessName {

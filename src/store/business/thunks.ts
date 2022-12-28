@@ -21,7 +21,7 @@ export const startGetBusiness = () => async (dispatch: Dispatch) => {
       const business = getBusinessName();
       dispatch(setBusiness(business));
       dispatch(setStatus("idle"));
-    }, 2000);
+    }, 800);
   } catch (error) {
     dispatch(setStatus("failed"));
   }
@@ -44,7 +44,7 @@ export const startGetBusinessByID =
 
         dispatch(setBusinessStatus("idle"));
         dispatch(setActiveBusiness(business));
-      }, 2000);
+      }, 800);
     } catch (error) {
       console.error(error);
       dispatch(setStatus("failed"));
@@ -63,7 +63,7 @@ export const startAddingBusiness =
           resetForm();
           return "Empresa agregada correctamente";
         });
-      }, 2000);
+      }, 800);
     } catch (error) {
       console.error(error);
       dispatch(setStatus("failed"));
