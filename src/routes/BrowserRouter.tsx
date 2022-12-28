@@ -1,10 +1,14 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createHashRouter,
+  RouterProvider,
+} from "react-router-dom";
 import { Root, UsersScreen, User, AddUser } from "pages";
 import { BusinessScreen } from "../pages/business/index";
 import { Business } from "pages/business/Business";
 import { AddBusiness } from "../pages/business/AddBusiness";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Root />,
