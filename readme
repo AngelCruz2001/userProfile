@@ -1,0 +1,19 @@
+## The project has the following folder structure: 
+
+    ├───docs
+    ├───node_modules
+    ├───public
+    └───src
+        ├───assets: this is where the static files and resources are stored. 
+        ├───components: All the pieces of code that can be reused are stored here.
+        ├───helpers: The functions that are being used in the project more than once are stored here.
+        ├───hooks: The custom hooks are stored here.
+        ├───interfaces: The TS interfaces. 
+        ├───pages: The part of the code that is going to render a high order component is stored here.
+        ├───resources: The translations are stored here.
+        ├───routes: This was the first approach to the routing to diversify the code but at the end with the new version of react-router-dom it was not necessary to divide the code in this way.
+        └───styles: As the project is using sass the styles folder has the following structure:
+            ├───abstracts: The variables, mixins, and functions are stored here.
+            ├───base: The base styles are stored here.
+            └───models: The styles for the high order components are stored here.
+        
