@@ -1,0 +1,17 @@
+@use "src/styles/colors";
+@use "src/styles/abstracts/mixins";
+@use "src/styles/animations";
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-width: 15rem;
+
+    animation: fadeIn 1s ease-in-out;
+}
+
+.loading {
+    @include mixins.skeleton;
+    max-width: 15rem;
+}

@@ -1,0 +1,9 @@
+@use "src/styles/abstracts/mixins";
+
+.button {
+    @include mixins.buttonSubmit(disabled);
+
+    &:not(:disabled) {
+        @include mixins.buttonSubmit(active);
+    }
+}

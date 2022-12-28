@@ -1,0 +1,8 @@
+@use "src/styles/abstracts/mixins";
+
+.container {
+    @include mixins.itemSection;
+    width: 70vw;
+}
+
+

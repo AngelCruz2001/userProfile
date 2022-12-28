@@ -1,0 +1,149 @@
+@use "../colors" as *;
+@use "./variables" as *;
+@use "../animations" as *;
+
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) {
+            @content;
+        } // 600px
+    }
+
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content;
+        } // 900px
+    }
+
+    @if $breakpoint==from-tab-land {
+        @media (min-width: 56.25em) {
+            @content;
+        } // 900px
+    }
+
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content;
+        } //1200px
+    }
+
+    @if $breakpoint==big-desk {
+        @media (min-width: 112.5em) {
+            @content;
+        } //1800px
+    }
+}
+
+@mixin scrollBar($width) {
+    &::-webkit-scrollbar {
+        width: $width;
+
+        @include respond(tab-land) {
+            display: none;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary;
+
+        &:hover {
+            background-color: $primary-dark;
+        }
+    }
+}
+
+@mixin card {
+    display: flex;
+    background-color: $secondary;
+    border-radius: $box-border-radius;
+    padding: 2rem;
+    max-width: 90vw;
+    flex-direction: column;
+    // width: 100%;
+    @include boxShadow;
+}
+
+@mixin input($style: "") {
+    background-color: transparent !important;
+    width: 500px;
+    height: 40px;
+    font-size: $input-font-size;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid $disabled-gray;
+    transition: all 0.4s ease-in-out;
+    outline: none;
+    color: $foreground;
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+        -webkit-text-fill-color: $foreground;
+        -webkit-box-shadow: 0 0 0px 1000px $secondary inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    @if $style==disabled {
+        border-bottom: 2px solid $disabled-gray;
+        color: $disabled-gray;
+        // cursor: not-allowed;
+    }
+
+    @if $style==active {
+        border-bottom: 2px solid $primary-dark;
+        color: $foreground;
+    }
+
+    @if $style==edited {
+        border-bottom: 2px solid $primary;
+        color: $foreground;
+    }
+
+    @if $style==error {
+        border-bottom: 2px solid $secondary;
+        color: $secondary;
+    }
+}
+
+@mixin itemSection {
+    flex: 1;
+}
+
+@mixin boxShadow {
+    box-shadow: 0 0 2.5rem 1rem rgba($primary-dark, 0.3);
+}
+
+@mixin skeleton {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-width: 5rem;
+    height: 100%;
+    cursor: progress;
+    background: linear-gradient(0.25turn, $secondary, $secondary-dark, $secondary) 0% 0% / 100% 100% no-repeat;
+    background-position: -400px 0;
+    background-size: 400px auto;
+
+    color: transparent;
+    animation: loading 1.5s infinite;
+}
+
+@mixin buttonSubmit($style: "") {
+    width: 100%;
+    margin: 0 auto;
+    background-color: $primary;
+    color: $foreground;
+    cursor: pointer;
+    border-radius: 1rem;
+    height: 5rem;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+
+    @if $style==disabled {
+        background-color: $secondary-dark;
+        color: $disabled-gray;
+        cursor: not-allowed;
+    }
+}

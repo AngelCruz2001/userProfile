@@ -1,0 +1,57 @@
+@use "src/styles/colors";
+@use "src/styles/abstracts/mixins";
+@use "src/styles/abstracts/variables";
+@use "src/styles/animations";
+
+.container {
+    position: relative;
+    margin-bottom: 4rem;
+    min-width: 90%;
+}
+.input {
+    @include mixins.input(disabled);
+    margin-bottom: 1rem;
+
+    &:focus {
+        @include mixins.input(active);
+    }
+    &:focus + label {
+        font-size: 16px;
+        top: -10%;
+    }
+}
+.active {
+    @include mixins.input(active);
+    & + label {
+        font-size: 16px;
+        top: -10%;
+    }
+}
+
+.label {
+    position: absolute;
+    color: colors.$foreground;
+    user-select: none;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 0;
+    transition: all 0.2s ease-in-out;
+    z-index: 0;
+    font-size: variables.$input-font-size;
+
+    &:focus {
+        background-color: green !important;
+    }
+}
+
+.error {
+    position: absolute;
+    top: 90%;
+    color: colors.$primary;
+}
+
+select option {
+    color: colors.$foreground;
+    background-color: colors.$bc;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
